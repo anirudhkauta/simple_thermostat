@@ -77,12 +77,6 @@ class TestThermostat():
         assert_equal(r.status, 404)
         r.mustcontain('not found')
 
-        # This test case is failing as non int ids are not captured from the URL
-        # Return 406 notacceptable for thermostat id that isn't int
-        # r = testApp.get('/thermostats/abc', status="*")
-        # assert_equal(r.status, 406)
-        # r.mustcontain('not acceptable')
-
     def test_PUT(self):
         middleware = []
         testApp = TestApp(app.wsgifunc(*middleware))
